@@ -1,2 +1,7 @@
-# openwrt-ci
-Automatically compile OpenWrt based on GitHub Actions.
+# OpenWrt-CI
+
+Automatically compile [Lean's OpenWrt](https://github.com/coolsnowwolf/lede) based on GitHub Actions
+
+## License
+
+[MIT](LICENSE)
