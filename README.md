@@ -12,6 +12,8 @@ Automatically compile [Lean's OpenWrt](https://github.com/coolsnowwolf/lede) bas
 
 - [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt)
 
+- [IvanSolis1989/OpenWrt-DIY](https://github.com/IvanSolis1989/OpenWrt-DIY)
+
 - [fw876/helloworld](https://github.com/fw876/helloworld)
 
 - [jerrykuku/luci-theme-argon](https://github.com/jerrykuku/luci-theme-argon)
