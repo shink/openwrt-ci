@@ -4,7 +4,9 @@ Automatically compile [Lean's OpenWrt](https://github.com/coolsnowwolf/lede) bas
 
 ## Device
 
-- [PHICOMM K2P](phicomm-k2p) ![](https://github.com/shink/openwrt-ci/workflows/Build%20OpenWrt%20Firmware%20for%20PHICOMM%20K2P/badge.svg)
+- [PHICOMM K2](phicomm-k2) ![](https://github.com/shink/openwrt-ci/workflows/Build%20for%20PHICOMM%20K2/badge.svg)
+
+- [PHICOMM K2P](phicomm-k2p) ![](https://github.com/shink/openwrt-ci/workflows/Build%20for%20PHICOMM%20K2P/badge.svg)
 
 ## Thanks
 
