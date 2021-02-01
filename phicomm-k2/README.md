@@ -12,4 +12,4 @@ OpenWrt firmware based on [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)
 
 ## Theme
 
-- [jerrykuku/luci-theme-argon](https://github.com/jerrykuku/luci-theme-argon)
+- luci-theme-bootstrap
