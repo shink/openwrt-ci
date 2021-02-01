@@ -1,16 +1,22 @@
 # PHICOMM K2P
 
-OpenWrt Firmware based on [Lean's OpenWrt](https://github.com/coolsnowwolf/lede) for PHICOMM K2P
+OpenWrt firmware based on [Lean's OpenWrt](https://github.com/coolsnowwolf/lede) for PHICOMM K2P
 
-## Application
+## Package
+
+- ipv6
 
 - luci-app-ddns
 
 - luci-app-frps
 
-- [fw876/helloworld](https://github.com/fw876/helloworld)
+- luci-app-vsftpd
 
-    - Xray
+- ~~[fw876/helloworld](https://github.com/fw876/helloworld)~~
+
+    - ~~Xray~~
+
+- luci-app-upnp
 
 ## Theme
 

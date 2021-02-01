@@ -1,4 +1,4 @@
-name: Build OpenWrt Firmware for PHICOMM K2P
+name: Build for PHICOMM K2P
 
 on:
   repository_dispatch:
@@ -20,7 +20,7 @@ env:
 
 jobs:
   build:
-    name: Build for k2p
+    name: Build openwrt firmware
     runs-on: ubuntu-18.04
     defaults:
       run:
