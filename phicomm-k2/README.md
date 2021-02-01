@@ -6,11 +6,7 @@ OpenWrt firmware based on [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)
 
 - ipv6
 
-- openssh-sftp
-
 - luci-app-frpc
-
-- luci-app-mtwifi
 
 - luci-app-wol
 
