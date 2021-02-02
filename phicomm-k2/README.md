@@ -6,12 +6,20 @@ OpenWrt firmware based on [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)
 
 - ipv6
 
+- openssh-sftp
+
 - luci-app-arpbind
+
+- luci-app-autoreboot
 
 - luci-app-firewall
 
-- luci-app-frpc
+- luci-app-flowoffload
+
+- luci-app-ramfree
+
+- luci-app-wol
 
 ## Theme
 
-- luci-theme-bootstrap
+- [jerrykuku/luci-theme-argon](https://github.com/jerrykuku/luci-theme-argon)
