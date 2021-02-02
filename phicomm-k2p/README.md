@@ -8,11 +8,21 @@ OpenWrt firmware based on [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)
 
 - openssh-sftp
 
-- luci-app-ddns
+- luci-app-accesscontrol
+
+- luci-app-arpbind
   
+- luci-app-autoreboot
+
+- luci-app-ddns
+
+- luci-app-firewall
+
 - luci-app-flowoffload
 
 - luci-app-frps
+  
+- luci-app-ramfree
 
 - ~~[fw876/helloworld](https://github.com/fw876/helloworld)~~
 
