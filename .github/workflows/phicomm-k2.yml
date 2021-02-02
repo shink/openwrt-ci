@@ -50,6 +50,7 @@ jobs:
           repository: ${{ env.REPO }}
           ref: ${{ env.REPO_BRANCH }}
           path: ${{ env.WORKING_DIR }}/openwrt
+          fetch-depth: 1
 
       - name: Load custom feeds
         run: |

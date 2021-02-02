@@ -21,55 +21,48 @@ jobs:
         with:
           repository: ${{ env.REPO }}
           ref: ${{ env.REPO_BRANCH }}
-          path: ${{ env.WORKING_DIR }}/openwrt
-          fetch-depth: 0
+          path: openwrt
+          fetch-depth: 1
 
-      - name: Get commit hash
+      - name: Get latest commit hash
         run: |
           cd openwrt
           echo "LATEST_HASH=$(git rev-parse HEAD)" >> $GITHUB_ENV
+          echo "latest_hash: $LATEST_HASH"
 
-      - name: Read hash
+      - name: Read cache hash
         id: read-cache
         uses: actions/cache@v2
         with:
-          path: .cache
-          key: HEAD-${{ env.LATEST_HASH }}
+          path: hash.cache
+          key: commit-${{ env.LATEST_HASH }}
 
-      - name: Compare hash
-        run: |
-          echo "ISEQUAL=${{ steps.read-cache.outputs.cache-hit }}" >> $GITHUB_ENV
-          echo "is_equal: $ISEQUAL"
-          echo "latest_hash: $LATEST_HASH"
-          echo "cache_hash: $(cat .cache)"
-
-      # If the cache hits, this means it needs to be updated
       - name: Update cache
-        if: success() && env.ISEQUAL == 'false'
+        if: success() && steps.read-cache.outputs.cache-hit != 'true'
         run: |
-          echo $LATEST_HASH > .cache
+          echo $LATEST_HASH > hash.cache
 
       - name: Trigger build
-        if: success() && env.ISEQUAL == 'false'
+        if: success() && steps.read-cache.outputs.cache-hit != 'true'
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           event-type: updated
 
       - name: Bark notify
-        if: success() && env.ISEQUAL == 'false'
+        if: success() && steps.read-cache.outputs.cache-hit != 'true'
         uses: shink/bark-action@v1
         with:
           key: ${{ secrets.BARK_KEY }}
-          title: New commit record found
+          title: New commit record found in ${{ env.REPO }}
           body: compilation job has started
           url: https://github.com/${{ github.repository }}/actions?query=is%3Ain_progress
 
       # Delete workflow runs
       - name: Delete workflow runs
-        uses: GitRML/delete-workflow-runs@main
+        uses: Mattraks/delete-workflow-runs@main
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
           retain_days: 30
-          keep_minimum_runs: 1
+          keep_minimum_runs: 3
