@@ -6,7 +6,11 @@ OpenWrt firmware based on [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)
 
 - ipv6
 
-- luci-app-wol
+- luci-app-arpbind
+
+- luci-app-firewall
+
+- luci-app-frpc
 
 ## Theme
 
