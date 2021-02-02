@@ -1,8 +1,9 @@
 name: Build for PHICOMM K2P
 
 on:
-  repository_dispatch:
   workflow_dispatch:
+  repository_dispatch:
+    types: [ updated ]
   release:
     types: [ published ]
 
@@ -122,5 +123,6 @@ jobs:
         uses: shink/bark-action@v1
         with:
           key: ${{ secrets.BARK_KEY }}
-          body: Compilation work is over
+          title: Compilation job is over
+          body: "device: ${{ env.DEVICE_NAME }}"
           url: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

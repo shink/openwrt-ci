@@ -1,0 +1,75 @@
+name: Check for Updates
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 7 * * 5'
+
+env:
+  REPO: coolsnowwolf/lede
+  REPO_BRANCH: master
+
+jobs:
+  job:
+    name: Check for updates
+    runs-on: ubuntu-18.04
+
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Download source code
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ env.REPO }}
+          ref: ${{ env.REPO_BRANCH }}
+          path: ${{ env.WORKING_DIR }}/openwrt
+          fetch-depth: 0
+
+      - name: Get commit hash
+        run: |
+          cd openwrt
+          echo "LATEST_HASH=$(git rev-parse HEAD)" >> $GITHUB_ENV
+
+      - name: Read hash
+        id: read-cache
+        uses: actions/cache@v2
+        with:
+          path: .cache
+          key: HEAD-${{ env.LATEST_HASH }}
+
+      - name: Compare hash
+        run: |
+          echo "ISEQUAL=${{ steps.read-cache.outputs.cache-hit }}" >> $GITHUB_ENV
+          echo "is_equal: $ISEQUAL"
+          echo "latest_hash: $LATEST_HASH"
+          echo "cache_hash: $(cat .cache)"
+
+      # If the cache hits, this means it needs to be updated
+      - name: Update cache
+        if: success() && env.ISEQUAL == 'false'
+        run: |
+          echo $LATEST_HASH > .cache
+
+      - name: Trigger build
+        if: success() && env.ISEQUAL == 'false'
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          event-type: updated
+
+      - name: Bark notify
+        if: success() && env.ISEQUAL == 'false'
+        uses: shink/bark-action@v1
+        with:
+          key: ${{ secrets.BARK_KEY }}
+          title: New commit record found
+          body: compilation job has started
+          url: https://github.com/${{ github.repository }}/actions?query=is%3Ain_progress
+
+      # Delete workflow runs
+      - name: Delete workflow runs
+        uses: GitRML/delete-workflow-runs@main
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          retain_days: 30
+          keep_minimum_runs: 1
