@@ -20,6 +20,8 @@ OpenWrt firmware based on [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)
 
 - luci-app-flowoffload
 
+- luci-app-frpc
+  
 - luci-app-frps
   
 - luci-app-ramfree
