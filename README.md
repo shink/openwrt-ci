@@ -8,6 +8,8 @@ Automatically compile [Lean's OpenWrt](https://github.com/coolsnowwolf/lede) bas
 
 - [PHICOMM K2P](phicomm-k2p) ![](https://github.com/shink/openwrt-ci/workflows/Build%20for%20PHICOMM%20K2P/badge.svg)
 
+- [X86](x86) ![](https://github.com/shink/openwrt-ci/workflows/Build%20for%20X86%20Devices/badge.svg)
+
 ## Thanks
 
 - [coolsnowwolf/lede](https://github.com/coolsnowwolf/lede)
