@@ -8,7 +8,7 @@ Automatically compile [Lean's OpenWrt](https://github.com/coolsnowwolf/lede) bas
 
 - [PHICOMM K2P](phicomm-k2p) ![](https://github.com/shink/openwrt-ci/workflows/Build%20for%20PHICOMM%20K2P/badge.svg)
 
-- [X86](x86) ![](https://github.com/shink/openwrt-ci/workflows/Build%20for%20X86%20Devices/badge.svg)
+- [X86_64](x86_64) ![](https://github.com/shink/openwrt-ci/workflows/Build%20for%20X86_64%20Devices/badge.svg)
 
 ## Thanks
 
@@ -16,9 +16,15 @@ Automatically compile [Lean's OpenWrt](https://github.com/coolsnowwolf/lede) bas
 
 - [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt)
 
+- [esirplayground/AutoBuild-OpenWrt](https://github.com/esirplayground/AutoBuild-OpenWrt)
+
 - [IvanSolis1989/OpenWrt-DIY](https://github.com/IvanSolis1989/OpenWrt-DIY)
 
 - [fw876/helloworld](https://github.com/fw876/helloworld)
+
+- [xiaorouji/openwrt-passwall](https://github.com/xiaorouji/openwrt-passwall)
+
+- [vernesong/OpenClash](https://github.com/vernesong/OpenClash)
 
 - [jerrykuku/luci-theme-argon](https://github.com/jerrykuku/luci-theme-argon)
 
