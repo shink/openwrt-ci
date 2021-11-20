@@ -31,12 +31,13 @@ if [ ! -d lede ]; then
   git clone https://github.com/coolsnowwolf/lede.git
 else
   echo -e -------- "${red}The lede directory already existed, recompiling${none}" --------
+  git pull
   rm -rf lede/tmp && rm -rf lede/.config
 fi
 
 cd lede || exit
 echo -e -------- "${cyan}Load custom feeds${none}" --------
-[ -e ../$feeds_config ] && mv ../$feeds_config feeds.conf.default
+[ -e ../$feeds_config ] && cp ../$feeds_config feeds.conf.default
 ../$custom_feed_script
 
 echo -e -------- "${cyan}Update feeds${none}" --------
@@ -46,14 +47,17 @@ echo -e -------- "${cyan}Install feeds${none}" --------
 ./scripts/feeds install -a
 
 echo -e -------- "${cyan}Load custom configuration${none}" --------
-#[ -e ../$config_file ] && mv $config_file .config
+[ -e ../$config_file ] && cp ../$config_file .config
 ../$custom_config_script
 
 echo -e -------- "${cyan}make menuconfig${none}" --------
-make menuconfig
+#make menuconfig
+make defconfig
 
 echo -e -------- "${cyan}Downloading${none}" --------
-#make -j8 download V=s
+make -j8 download V=s
 
-echo -e -------- "${cyan}Compile with $(nproc) thread(s)${none}" --------
-#make -j$(nproc) V=s
+trd=$(($(nproc) + 1))
+echo -e -------- "${cyan}Compile with ${trd} thread(s)${none}" --------
+#make -j1 V=s
+make -j$(trd) V=s
