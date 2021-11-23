@@ -87,7 +87,7 @@ jobs:
         run: |
           cd openwrt
           echo -e "Compile with $(nproc) thread(s)"
-          make -j$(nproc) || make -j1 || make -j1 V=s
+          make -j$(nproc) || make -j1 V=s
 
       - name: Check space usage
         run: |
