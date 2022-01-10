@@ -10,6 +10,8 @@ OpenWrt firmware based on [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)
 
 - luci-app-accesscontrol
 
+- luci-app-adbyby-plus
+
 - luci-app-arpbind
   
 - luci-app-autoreboot
@@ -18,7 +20,7 @@ OpenWrt firmware based on [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)
 
 - luci-app-firewall
 
-- luci-app-flowoffload
+- luci-app-turboacc
 
 - luci-app-frpc
   
@@ -29,6 +31,16 @@ OpenWrt firmware based on [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)
 - ~~[fw876/helloworld](https://github.com/fw876/helloworld)~~
 
     - ~~Xray~~
+
+- luci-app-jd-dailybonus
+
+- luci-app-pppoe-relay
+
+- luci-app-pushbot
+
+- luci-app-unblockmusic
+
+- luci-app-webadmin
 
 - luci-app-upnp
 
