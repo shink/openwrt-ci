@@ -12,8 +12,8 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
-  DIY_FEED_SCRIPT: diy-feed.sh
-  DIY_CONFIG_SCRIPT: diy-config.sh
+  CUSTOM_FEED_SCRIPT: custom-feed.sh
+  CUSTOM_CONFIG_SCRIPT: custom-config.sh
   UPLOAD_BIN: false
   UPLOAD_FIRMWARE: true
   TZ: Asia/Shanghai
@@ -55,9 +55,9 @@ jobs:
       - name: Load custom feeds
         run: |
           [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
-          chmod +x $DIY_FEED_SCRIPT
+          chmod +x $CUSTOM_FEED_SCRIPT
           cd openwrt
-          $GITHUB_WORKSPACE/$WORKING_DIR/$DIY_FEED_SCRIPT
+          $GITHUB_WORKSPACE/$WORKING_DIR/$CUSTOM_FEED_SCRIPT
 
       - name: Update feeds
         run: cd openwrt && ./scripts/feeds update -a
@@ -68,9 +68,9 @@ jobs:
       - name: Load custom configuration
         run: |
           [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-          chmod +x $DIY_CONFIG_SCRIPT
+          chmod +x $CUSTOM_CONFIG_SCRIPT
           cd openwrt
-          $GITHUB_WORKSPACE/$WORKING_DIR/$DIY_CONFIG_SCRIPT
+          $GITHUB_WORKSPACE/$WORKING_DIR/$CUSTOM_CONFIG_SCRIPT
 
       - name: Generate configuration file
         run: cd openwrt && make defconfig

@@ -24,7 +24,7 @@ OpenWrt firmware based on [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)
 
 - luci-app-frpc
   
-- luci-app-frps
+- ~~luci-app-frps~~
   
 - luci-app-ramfree
 
@@ -36,13 +36,9 @@ OpenWrt firmware based on [Lean's OpenWrt](https://github.com/coolsnowwolf/lede)
 
 - luci-app-pppoe-relay
 
-- luci-app-pushbot
-
 - luci-app-unblockmusic
 
-- luci-app-webadmin
-
-- luci-app-upnp
+- ~~luci-app-upnp~~
 
 - luci-app-wol
 
